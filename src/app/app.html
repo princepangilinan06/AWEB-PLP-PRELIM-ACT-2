@@ -1,0 +1,61 @@
+<div class="site-shell">
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Prince Pangilinan home"><span class="brand-mark">P</span><span>prince<span class="brand-dot">.</span></span></a>
+    <button class="menu-toggle" type="button" (click)="menuOpen = !menuOpen" aria-label="Toggle navigation">☰</button>
+    <nav [class.open]="menuOpen">
+      <a href="#about" (click)="menuOpen = false">About</a>
+      <a href="#skills" (click)="menuOpen = false">Skills</a>
+      <a href="#projects" (click)="menuOpen = false">Projects</a>
+      <a href="#education" (click)="menuOpen = false">Education</a>
+    </nav>
+    <a class="header-contact" href="mailto:{{ email }}">Let's talk <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> STUDENT DEVELOPER · ANGELES CITY, PH</p>
+        <h1>Turning ideas<br>into <em>digital things.</em></h1>
+        <p class="hero-description">Hi, I'm <strong>Prince Lenard Pangilinan</strong>. I’m a computing student who enjoys building useful websites, exploring technology, and learning how things work.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↘</span></a>
+          <a class="text-link" href="mailto:{{ email }}">Get in touch <span>↗</span></a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span><span>Curious by nature. Always learning.</span></div>
+      </div>
+      <div class="hero-visual"><img src="/images/hero-workspace.png" alt="Illustration of a creative coding workspace with a monitor, plant, and coffee mug"><div class="floating-note"><span>✳</span><div><strong>Currently exploring</strong><small>Web development & UI design</small></div></div></div>
+      <div class="hero-index">01 <span>—</span> INTRODUCTION</div>
+    </section>
+
+    <section class="about section-pad" id="about">
+      <div class="section-kicker">01 / A LITTLE ABOUT ME</div>
+      <div class="about-grid">
+        <div><h2>Building with<br><em>curiosity.</em></h2><p class="section-lead">I’m interested in the space where creativity and technology meet.</p></div>
+        <div class="about-text"><p>I’m a student at the <strong>Holy Angel University School of Computing</strong>, focused on growing my skills in web development and understanding the systems behind the websites and applications we use every day.</p><p>I enjoy learning by doing: trying new tools, solving problems, and turning classroom concepts into practical projects. I’m also interested in networking, animation, and the many ways technology can make everyday tasks easier.</p><div class="about-signoff">A work in progress, in the best way. <span>✳</span></div></div>
+      </div>
+    </section>
+
+    <section class="skills section-pad" id="skills">
+      <div class="section-heading"><div><div class="section-kicker">02 / WHAT I WORK WITH</div><h2>Tools in my <em>toolkit.</em></h2></div><p>I’m continuously improving these skills through coursework, practice, and personal projects.</p></div>
+      <div class="skill-grid">
+        @for (skill of skills; track skill.name) {<div class="skill-item"><span class="skill-number">{{ skill.number }}</span><div><h3>{{ skill.name }}</h3><p>{{ skill.description }}</p></div><span class="skill-arrow">↗</span></div>}
+      </div>
+    </section>
+
+    <section class="projects section-pad" id="projects">
+      <div class="section-heading"><div><div class="section-kicker">03 / SELECTED WORK</div><h2>Things I've <em>worked on.</em></h2></div><p>A few projects that reflect what I’ve been learning and building.</p></div>
+      <div class="project-grid">
+        @for (project of projects; track project.title; let i = $index) {<article class="project-card"><div class="project-image"><img [src]="project.image" [alt]="project.title + ' project preview'"><span class="project-count">0{{ i + 1 }}</span></div><div class="project-info"><div><p class="project-type">{{ project.type }}</p><h3>{{ project.title }}</h3><p class="project-description">{{ project.description }}</p></div><span class="project-symbol">↗</span></div><div class="project-tags">@for (tag of project.tags; track tag) {<span>{{ tag }}</span>}</div></article>}
+      </div>
+    </section>
+
+    <section class="education section-pad" id="education">
+      <div class="section-kicker">04 / THE LEARNING JOURNEY</div>
+      <div class="education-grid"><h2>Learning today.<br><em>Building tomorrow.</em></h2><div class="education-card"><span class="education-icon">✳</span><div><p class="project-type">EDUCATION</p><h3>Holy Angel University</h3><p>School of Computing</p><small>Angeles City, Pampanga</small></div><span class="education-date">PRESENT</span></div></div>
+    </section>
+
+    <section class="contact section-pad" id="contact"><div class="section-kicker">05 / HAVE SOMETHING IN MIND?</div><div class="contact-row"><h2>Let's make<br><em>something useful.</em></h2><div><p>Have a project idea, a question, or just want to connect? My inbox is open.</p><a class="button button-light" href="mailto:{{ email }}">Say hello <span>↗</span></a></div></div></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">P</span><span>prince<span class="brand-dot">.</span></span></a><p>Designed with curiosity in Angeles City, Philippines.</p><a href="mailto:{{ email }}">{{ email }} <span>↗</span></a><small>© {{ currentYear }} Prince Pangilinan</small></footer>
+</div>
